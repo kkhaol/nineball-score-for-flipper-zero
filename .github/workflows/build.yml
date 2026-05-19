@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nineball_score_fap
-          path: fw/build/f7-firmware-C/.extapps/*.fap
+          path: fw/build/**/*.fap
