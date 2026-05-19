@@ -23,7 +23,7 @@ jobs:
       - name: Build
         run: |
           cd fw
-          ./fbt launch APPSRC=applications_user/nineball_score
+          ./fbt fap_nineball_score APPSRC=applications_user/nineball_score
 
       - name: Upload
         uses: actions/upload-artifact@v4
