@@ -20,13 +20,17 @@ jobs:
           mkdir -p fw/applications_user/nineball_score
           cp -r nineball_score/* fw/applications_user/nineball_score/
 
-      - name: Build
+      - name: Build FAP
         run: |
           cd fw
-          ./fbt fap_nineball_score APPSRC=applications_user/nineball_score
+          ./fbt launch APPSRC=applications_user/nineball_score || true
+          find build -name "*.fap"
+          mkdir -p ../artifact
+          find build -name "*.fap" -exec cp {} ../artifact/ \;
+          test -f ../artifact/nineball_score.fap
 
-      - name: Upload
+      - name: Upload FAP
         uses: actions/upload-artifact@v4
         with:
           name: nineball_score_fap
-          path: fw/build/**/*.fap
+          path: artifact/nineball_score.fap
