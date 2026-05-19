@@ -1,6 +1,6 @@
 App(
     appid="nineball_score",
-    name="9球追分",
+    name="9-ball-score",
     apptype=FlipperAppType.EXTERNAL,
     entry_point="nineball_score_app",
     cdefines=["APP_NINEBALL_SCORE"],
