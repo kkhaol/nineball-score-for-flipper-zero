@@ -1,0 +1,12 @@
+App(
+    appid="nineball_score",
+    name="9球追分",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="nineball_score_app",
+    cdefines=["APP_NINEBALL_SCORE"],
+    requires=["gui", "input", "notification", "storage"],
+    stack_size=4096,
+    fap_category="Games",
+    fap_icon="icon_10px.png",
+    fap_icon_assets="assets",
+)
