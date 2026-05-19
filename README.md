@@ -1,0 +1,2 @@
+一个可以在flipper zero上用的台球追分小助手
+完全由chatgpt搭建
