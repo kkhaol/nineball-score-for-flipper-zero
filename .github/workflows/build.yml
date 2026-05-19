@@ -1,0 +1,32 @@
+name: Build Nineball Score FAP
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Clone Momentum Firmware
+        run: |
+          git clone --recursive https://github.com/Next-Flip/Momentum-Firmware.git fw
+
+      - name: Copy App
+        run: |
+          mkdir -p fw/applications_user/nineball_score
+          cp -r nineball_score/* fw/applications_user/nineball_score/
+
+      - name: Build
+        run: |
+          cd fw
+          ./fbt fap_nineball_score
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: nineball_score_fap
+          path: fw/build/f7-firmware-D/.extapps/*.fap
